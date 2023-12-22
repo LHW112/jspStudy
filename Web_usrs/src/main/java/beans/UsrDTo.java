@@ -7,6 +7,8 @@ public class UsrDTo {
 	private String u_name;
 	private String birthday;
 	private String phone;
+	
+	
 	public String getU_id() {
 		return u_id;
 	}
