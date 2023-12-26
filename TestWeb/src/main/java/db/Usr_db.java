@@ -24,6 +24,7 @@ public class Usr_db {
 			
 			String sql = "insert into Usr values"+"(?,?,?,?,?)";
 			
+			
 			ps = cn.prepareStatement(sql);
 			ps.setString(1,us.getU_id());
 			ps.setString(2,us.getPwd());
