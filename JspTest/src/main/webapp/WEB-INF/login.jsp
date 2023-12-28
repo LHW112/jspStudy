@@ -7,10 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="container" method ="post">
-	아이디	<input name = "h_id" type="text">
-	비밀번호	<input name = "pwd"  type="password">
-	전화번호	<input name = "h_name" type ="text">
-	</form>
+	아이디<input name="u_id" type="text">
+	비밀번호<input name="u_pwd" type="password">
+	<input type="submit" value="로그인">
+	
 </body>
 </html>
