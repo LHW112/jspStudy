@@ -49,4 +49,24 @@
     <servlet-name>Text</servlet-name>
     <url-pattern>/Text</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>Detail</display-name>
+    <servlet-name>Detail</servlet-name>
+    <servlet-class>webwork.Detail</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Detail</servlet-name>
+    <url-pattern>/Detail</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>TransUsrs</display-name>
+    <servlet-name>TransUsrs</servlet-name>
+    <servlet-class>webwork.TransUsrs</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>TransUsrs</servlet-name>
+    <url-pattern>/TransUsrs</url-pattern>
+  </servlet-mapping>
 </web-app>
