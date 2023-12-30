@@ -16,22 +16,22 @@ public class Detail extends HttpServlet {
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Detail() {
+	public Detail() {
         super();
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+		request.getParameter("b_id");
+		BoardDB bdb = new BoardDB();
+		Board_DTO bdt = new Board_DTO();
+		bdt.setB_id(request.getParameter("b_id"));
+		//반환타입???
+		bdb.detail(bdt);
+		request.setAttribute("bdt", bdt);
+		request.getRequestDispatcher("/WEB-INF/detail.jsp").forward(request, response);
 	}
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);

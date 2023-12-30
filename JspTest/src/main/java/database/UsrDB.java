@@ -132,4 +132,75 @@ public class UsrDB {
 		
 		
 	}
+	public void detail(BoardDTO bdt) {
+		System.out.println("여기가db임 ㅋㅋ : " + bdt);
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			cn = DriverManager.getConnection(urs,id,pwd);
+			String sql = "select * from board where b_id = ?";
+			
+			ps = cn.prepareStatement(sql);
+			ps.setString(1, bdt.getB_id());
+			rs = ps.executeQuery();
+			
+			
+			if(rs.next()) {
+				 bdt.setB_title(rs.getString("B_title"));
+				 bdt.setB_text(rs.getString("B_text"));
+				 
+			}
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		
+	
+	}
+	public List<BoardDTO> viewText(){
+		List<BoardDTO> boards = new ArrayList<BoardDTO>();
+		
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			cn = DriverManager.getConnection(urs,id,pwd);
+			String sql = "select * from board order by b_id desc";
+			
+			ps = cn.prepareStatement(sql);
+			ResultSet rs = ps.executeQuery();
+			
+				
+			while(rs.next()) {
+				
+				BoardDTO bdt1 = new BoardDTO();
+				bdt1.setB_id(rs.getString("b_id"));
+				bdt1.setB_title(rs.getString("b_title"));
+				boards.add(bdt1);
+				
+				
+				
+				
+			}
+			
+			return boards;
+			
+			
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		return null;
+	}
 }
