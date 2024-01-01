@@ -203,4 +203,43 @@ public class UsrDB {
 		
 		return null;
 	}
+	
+	public void usrTrans(UsrDTO ud) {
+		
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");
+			cn = DriverManager.getConnection(urs,id,pwd);
+			String sql = "update Usr set ?, ?, ?, ?, where u_id is not null";
+			
+			ps = cn.prepareStatement(sql);
+			ps.setString(1, ud.getU_id());
+			ps.setString(2, ud.getU_pwd());
+			ps.setString(3, ud.getU_name());
+			ps.setString(5, ud.getPhone());
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+	
+	
+	}
+
+public void usrDelete(UsrDTO ud) {
+	// TODO Auto-generated method stub
+	try {
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		cn = DriverManager.getConnection(urs,id,pwd);
+		String sql = "Delete form Usr.? where u_id =?";
+		
+		ps = cn.prepareStatement(sql);
+		ps.setString(1, ud.getU_id());
+		
+	} catch (Exception e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
 }
+}
+

@@ -1,15 +1,15 @@
 package webwork;
 
+import java.io.IOException;
+
+import beans.BoardDTO;
+import database.UsrDB;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
-/**
- * Servlet implementation class Detail
- */
+
 public class Detail extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -23,8 +23,8 @@ public class Detail extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.getParameter("b_id");
-		BoardDB bdb = new BoardDB();
-		Board_DTO bdt = new Board_DTO();
+		UsrDB bdb = new UsrDB();
+		BoardDTO bdt = new BoardDTO();
 		bdt.setB_id(request.getParameter("b_id"));
 		//반환타입???
 		bdb.detail(bdt);

@@ -45,7 +45,7 @@ public class Join extends HttpServlet {
 		UsrDB udb = new UsrDB();
 		udb.join(ud);
 		
-		response.sendRedirect("");
+		response.sendRedirect("/JspTest/BoardMain");
 		
 		
 	}
