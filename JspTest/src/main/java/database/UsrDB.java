@@ -209,14 +209,14 @@ public class UsrDB {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 			cn = DriverManager.getConnection(urs,id,pwd);
-			String sql = "update Usr set ?, ?, ?, ?, where u_id is not null";
+			String sql = "update Usr u_pwd = ?, u_name =? , phone = ? set  where u_id = ?";
 			
 			ps = cn.prepareStatement(sql);
 			ps.setString(1, ud.getU_id());
 			ps.setString(2, ud.getU_pwd());
 			ps.setString(3, ud.getU_name());
 			ps.setString(5, ud.getPhone());
-			
+			ps.executeUpdate();
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -231,10 +231,11 @@ public void usrDelete(UsrDTO ud) {
 	try {
 		Class.forName("oracle.jdbc.driver.OracleDriver");
 		cn = DriverManager.getConnection(urs,id,pwd);
-		String sql = "Delete form Usr.? where u_id =?";
+		String sql = "Delete form Usr u_id = ? where u_id =?";
 		
 		ps = cn.prepareStatement(sql);
 		ps.setString(1, ud.getU_id());
+		ps.executeUpdate();
 		
 	} catch (Exception e) {
 		// TODO Auto-generated catch block
